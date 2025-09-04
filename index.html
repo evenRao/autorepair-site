@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RoadReady Auto | Local Auto Repair</title>
+  <meta name="description" content="Honest, affordable auto repair and maintenance. Brakes, oil changes, diagnostics, tires, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: light dark; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .container { max-width: 1100px; }
+    /* Simple focus styles for a11y */
+    :focus-visible { outline: 3px solid #60a5fa; outline-offset: 2px; border-radius: 8px; }
+  </style>
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json" id="schema"></script>
+</head>
+<body class="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+  <!-- Top Bar -->
+  <div class="bg-neutral-900 text-white text-sm">
+    <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+      <p id="topbar-msg">ASE-Certified • Same‑Day Service • Family‑Owned</p>
+      <div class="flex items-center gap-4">
+        <a id="topbar-phone" class="underline" href="tel:+15555551234">Call: (555) 555‑1234</a>
+        <button id="owner-login" class="text-xs bg-white/10 px-3 py-1 rounded-lg hover:bg-white/20">Owner Login</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="border-b border-neutral-200 dark:border-neutral-800">
+    <div class="container mx-auto px-4 py-5 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" class="text-blue-600"><path d="M5 20h4v-2H7l2-7h6l1.143 4h2.082L16 4H8L5 16v4zm10-2h4v2h-4v-2z"/></svg>
+        <div>
+          <h1 id="biz-name" class="text-xl font-extrabold tracking-tight">RoadReady Auto</h1>
+          <p id="biz-tagline" class="text-xs text-neutral-500">Honest, local auto repair</p>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#services" class="hover:text-blue-600">Services</a>
+        <a href="#about" class="hover:text-blue-600">About</a>
+        <a href="#testimonials" class="hover:text-blue-600">Reviews</a>
+        <a href="#gallery" class="hover:text-blue-600">Gallery</a>
+        <a href="#hours" class="hover:text-blue-600">Hours</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+        <button id="toggle-theme" class="text-xs bg-neutral-100 dark:bg-neutral-800 px-3 py-1 rounded-lg">Toggle Theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-500/0 pointer-events-none"></div>
+    <div class="container mx-auto px-4 py-14 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 id="hero-title" class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">Keep your car running like new.</h2>
+        <p id="hero-sub" class="text-lg text-neutral-600 dark:text-neutral-300 mb-6">Brakes, oil changes, diagnostics, and more—done right the first time.</p>
+        <div class="flex flex-wrap gap-3">
+          <a id="cta-call" href="tel:+15555551234" class="inline-flex items-center justify-center rounded-2xl bg-blue-600 text-white px-5 py-3 font-semibold shadow hover:bg-blue-700">Call Now</a>
+          <a id="cta-directions" target="_blank" rel="noopener" href="https://maps.google.com/?q=123%20Main%20St" class="inline-flex items-center justify-center rounded-2xl bg-neutral-100 dark:bg-neutral-800 px-5 py-3 font-semibold hover:bg-neutral-200 dark:hover:bg-neutral-700">Get Directions</a>
+          <a href="#contact" class="inline-flex items-center justify-center rounded-2xl border border-neutral-300 dark:border-neutral-700 px-5 py-3 font-semibold">Request Appointment</a>
+        </div>
+      </div>
+      <div class="relative">
+        <img id="hero-img" alt="Auto repair shop" class="w-full rounded-3xl shadow" src="https://placehold.co/900x600/png?text=Your+Shop+Photo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="border-t border-neutral-200 dark:border-neutral-800">
+    <div class="container mx-auto px-4 py-14">
+      <h3 class="text-3xl font-extrabold mb-8">Our Services</h3>
+      <div id="services-list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div class="mt-8 text-sm text-neutral-500" id="services-note">*Prices are estimates. Final quote after inspection.</div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40">
+    <div class="container mx-auto px-4 py-14 grid md:grid-cols-2 gap-10 items-center">
+      <img id="about-img" class="w-full rounded-3xl shadow" src="https://placehold.co/800x550/png?text=Team+Photo" alt="Our team"/>
+      <div>
+        <h3 class="text-3xl font-extrabold mb-4">About Us</h3>
+        <p id="about-text" class="text-lg text-neutral-700 dark:text-neutral-300">We’re a family‑owned shop serving our community since 2008. Our ASE‑certified technicians provide honest recommendations and dependable repairs backed by warranty.</p>
+        <ul id="badges" class="mt-6 flex flex-wrap gap-3 text-sm">
+          <li class="px-3 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200">ASE Certified</li>
+          <li class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200">Warranty Backed</li>
+          <li class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200">Same‑Day Service</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="border-t border-neutral-200 dark:border-neutral-800">
+    <div class="container mx-auto px-4 py-14">
+      <h3 class="text-3xl font-extrabold mb-8">What Customers Say</h3>
+      <div id="reviews" class="grid md:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40">
+    <div class="container mx-auto px-4 py-14">
+      <h3 class="text-3xl font-extrabold mb-8">Shop Gallery</h3>
+      <div id="gallery-grid" class="grid sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+    </div>
+  </section>
+
+  <!-- Hours & Location -->
+  <section id="hours" class="border-t border-neutral-200 dark:border-neutral-800">
+    <div class="container mx-auto px-4 py-14 grid md:grid-cols-2 gap-10">
+      <div>
+        <h3 class="text-3xl font-extrabold mb-4">Hours</h3>
+        <ul id="hours-list" class="text-lg"></ul>
+      </div>
+      <div>
+        <h3 class="text-3xl font-extrabold mb-4">Location</h3>
+        <p id="address" class="text-lg mb-2">123 Main St, Hometown, CA 93000</p>
+        <a id="map-link" target="_blank" rel="noopener" class="inline-block text-blue-600 hover:underline mb-6" href="https://maps.google.com/?q=123%20Main%20St">Open in Google Maps →</a>
+        <iframe id="map-embed" class="w-full aspect-[16/9] rounded-2xl border" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Appointment -->
+  <section id="contact" class="border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40">
+    <div class="container mx-auto px-4 py-14 grid md:grid-cols-2 gap-10">
+      <div>
+        <h3 class="text-3xl font-extrabold mb-4">Request an Appointment</h3>
+        <p class="text-neutral-600 dark:text-neutral-300 mb-6">Tell us about your vehicle and the issue. We’ll confirm by phone or email.</p>
+        <form id="appt-form" class="space-y-3">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <input class="px-3 py-3 rounded-xl border bg-white dark:bg-neutral-900" placeholder="Full Name" required id="f-name" />
+            <input class="px-3 py-3 rounded-xl border bg-white dark:bg-neutral-900" placeholder="Phone" required id="f-phone" />
+          </div>
+          <input class="px-3 py-3 rounded-xl border w-full bg-white dark:bg-neutral-900" placeholder="Email (optional)" id="f-email" />
+          <input class="px-3 py-3 rounded-xl border w-full bg-white dark:bg-neutral-900" placeholder="Vehicle (e.g., 2018 Toyota Camry)" id="f-vehicle" />
+          <textarea class="px-3 py-3 rounded-xl border w-full min-h-[120px] bg-white dark:bg-neutral-900" placeholder="Describe the issue or service needed" id="f-msg"></textarea>
+          <button class="w-full rounded-2xl bg-blue-600 text-white px-5 py-3 font-semibold hover:bg-blue-700" type="submit">Send Request</button>
+          <p class="text-sm text-neutral-500">This will open your email with a pre‑filled message. No logins needed.</p>
+        </form>
+      </div>
+      <div class="rounded-3xl border p-6 bg-white/40 dark:bg-neutral-900/60">
+        <h4 class="text-xl font-bold mb-2">Contact</h4>
+        <p><span class="font-semibold">Phone:</span> <a id="contact-phone" class="text-blue-600 hover:underline" href="tel:+15555551234">(555) 555‑1234</a></p>
+        <p><span class="font-semibold">Email:</span> <a id="contact-email" class="text-blue-600 hover:underline" href="mailto:hello@roadreadyauto.com">hello@roadreadyauto.com</a></p>
+        <p><span class="font-semibold">Address:</span> <span id="contact-address">123 Main St, Hometown, CA 93000</span></p>
+        <div class="mt-4 text-sm text-neutral-500" id="license">BAR License #123456 • Insured</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-neutral-200 dark:border-neutral-800">
+    <div class="container mx-auto px-4 py-8 text-sm flex flex-col md:flex-row gap-3 items-center justify-between">
+      <p>© <span id="year"></span> <span id="footer-name">RoadReady Auto</span>. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a class="hover:underline" href="#services">Services</a>
+        <a class="hover:underline" href="#contact">Contact</a>
+        <a id="privacy-link" class="hover:underline" href="#" onclick="alert('We only store your edits in your browser unless you download a backup file.'); return false;">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Admin Panel (simple, password optional) -->
+  <dialog id="admin" class="w-[min(980px,95vw)] rounded-2xl p-0 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 shadow-2xl">
+    <form method="dialog" class="sticky top-0 z-10 flex items-center justify-between px-4 py-3 border-b bg-neutral-50/60 dark:bg-neutral-900/60 backdrop-blur border-neutral-200 dark:border-neutral-800">
+      <h4 class="text-lg font-bold">Owner Panel</h4>
+      <div class="flex items-center gap-2">
+        <button id="btn-import" class="text-sm px-3 py-1.5 rounded-lg border">Import</button>
+        <button id="btn-export" class="text-sm px-3 py-1.5 rounded-lg border">Export</button>
+        <button id="btn-save" class="text-sm px-3 py-1.5 rounded-lg border bg-blue-600 text-white">Save</button>
+        <button class="text-sm px-3 py-1.5 rounded-lg border">Close</button>
+      </div>
+    </form>
+    <div class="max-h-[75vh] overflow-y-auto p-4">
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Business Info -->
+        <section class="space-y-2">
+          <h5 class="font-semibold text-blue-600">Business Info</h5>
+          <input id="e-name" class="w-full px-3 py-2 border rounded-xl" placeholder="Business Name" />
+          <input id="e-tag" class="w-full px-3 py-2 border rounded-xl" placeholder="Tagline" />
+          <input id="e-phone" class="w-full px-3 py-2 border rounded-xl" placeholder="Phone (e.g., (805) 555-0000)" />
+          <input id="e-email" class="w-full px-3 py-2 border rounded-xl" placeholder="Email" />
+          <input id="e-address" class="w-full px-3 py-2 border rounded-xl" placeholder="Street, City, ST ZIP" />
+          <input id="e-maps" class="w-full px-3 py-2 border rounded-xl" placeholder="Google Maps Link" />
+          <input id="e-license" class="w-full px-3 py-2 border rounded-xl" placeholder="License line (optional)" />
+        </section>
+        <!-- Hero -->
+        <section class="space-y-2">
+          <h5 class="font-semibold text-blue-600">Hero Section</h5>
+          <input id="e-hero-title" class="w-full px-3 py-2 border rounded-xl" placeholder="Headline" />
+          <input id="e-hero-sub" class="w-full px-3 py-2 border rounded-xl" placeholder="Subheadline" />
+          <input id="e-hero-img" class="w-full px-3 py-2 border rounded-xl" placeholder="Hero Image URL" />
+          <input id="e-topbar" class="w-full px-3 py-2 border rounded-xl" placeholder="Topbar message (e.g., ASE, warranty, etc.)" />
+        </section>
+        <!-- Hours -->
+        <section class="space-y-2 md:col-span-2">
+          <h5 class="font-semibold text-blue-600">Hours</h5>
+          <div id="e-hours" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2"></div>
+        </section>
+        <!-- Services -->
+        <section class="space-y-2">
+          <div class="flex items-center justify-between">
+            <h5 class="font-semibold text-blue-600">Services</h5>
+            <button id="add-service" class="text-sm px-3 py-1 rounded-lg border">+ Add</button>
+          </div>
+          <div id="e-services" class="space-y-2"></div>
+          <input id="e-services-note" class="w-full px-3 py-2 border rounded-xl" placeholder="Services note (optional)" />
+        </section>
+        <!-- Testimonials -->
+        <section class="space-y-2">
+          <div class="flex items-center justify-between">
+            <h5 class="font-semibold text-blue-600">Testimonials</h5>
+            <button id="add-review" class="text-sm px-3 py-1 rounded-lg border">+ Add</button>
+          </div>
+          <div id="e-reviews" class="space-y-2"></div>
+        </section>
+        <!-- Gallery -->
+        <section class="space-y-2 md:col-span-2">
+          <div class="flex items-center justify-between">
+            <h5 class="font-semibold text-blue-600">Gallery</h5>
+            <button id="add-photo" class="text-sm px-3 py-1 rounded-lg border">+ Add Photo</button>
+          </div>
+          <div id="e-gallery" class="grid md:grid-cols-3 gap-2"></div>
+        </section>
+        <!-- About -->
+        <section class="space-y-2 md:col-span-2">
+          <h5 class="font-semibold text-blue-600">About</h5>
+          <textarea id="e-about" class="w-full px-3 py-2 border rounded-xl min-h-[120px]" placeholder="About text"></textarea>
+          <input id="e-about-img" class="w-full px-3 py-2 border rounded-xl" placeholder="About image URL" />
+        </section>
+      </div>
+      <input type="file" id="file-input" accept="application/json" class="hidden" />
+    </div>
+  </dialog>
+
+  <script>
+    const el = (sel) => document.querySelector(sel);
+    const els = (sel) => Array.from(document.querySelectorAll(sel));
+
+    const defaults = {
+      name: "RoadReady Auto",
+      tagline: "Honest, local auto repair",
+      topbar: "ASE-Certified • Same‑Day Service • Family‑Owned",
+      phone: "(555) 555-1234",
+      phoneHref: "+15555551234",
+      email: "hello@roadreadyauto.com",
+      address: "123 Main St, Hometown, CA 93000",
+      maps: "https://maps.google.com/?q=123%20Main%20St%2C%20Hometown%2C%20CA",
+      license: "BAR License #123456 • Insured",
+      hero: {
+        title: "Keep your car running like new.",
+        sub: "Brakes, oil changes, diagnostics, and more—done right the first time.",
+        img: "https://placehold.co/900x600/png?text=Your+Shop+Photo"
+      },
+      about: {
+        text: "We’re a family‑owned shop serving our community since 2008. Our ASE‑certified technicians provide honest recommendations and dependable repairs backed by warranty.",
+        img: "https://placehold.co/800x550/png?text=Team+Photo"
+      },
+      hours: {
+        Monday: "8:00 AM – 6:00 PM",
+        Tuesday: "8:00 AM – 6:00 PM",
+        Wednesday: "8:00 AM – 6:00 PM",
+        Thursday: "8:00 AM – 6:00 PM",
+        Friday: "8:00 AM – 6:00 PM",
+        Saturday: "9:00 AM – 2:00 PM",
+        Sunday: "Closed"
+      },
+      servicesNote: "*Prices are estimates. Final quote after inspection.",
+      services: [
+        { title: "Oil Change", price: "$59", blurb: "Full synthetic, includes inspection." },
+        { title: "Brake Service", price: "$249+", blurb: "Pads & rotors, most vehicles." },
+        { title: "Diagnostics", price: "$99", blurb: "Check engine light & drivability." },
+        { title: "AC Service", price: "$149", blurb: "Recharge & leak test." },
+        { title: "Battery Replacement", price: "$179+", blurb: "Premium batteries, 36‑mo warranty." },
+        { title: "Tires & Alignment", price: "$79+", blurb: "Mount, balance, 4‑wheel alignment." }
+      ],
+      reviews: [
+        { name: "Jordan M.", text: "Honest and fast—saved my road trip!" },
+        { name: "Sasha R.", text: "Fair prices and great communication." },
+        { name: "Luis G.", text: "My go‑to shop for years. Highly recommend." }
+      ],
+      gallery: [
+        "https://placehold.co/800x600/png?text=Bay+1",
+        "https://placehold.co/800x600/png?text=Bay+2",
+        "https://placehold.co/800x600/png?text=Waiting+Area",
+        "https://placehold.co/800x600/png?text=Team",
+        "https://placehold.co/800x600/png?text=Before+%26+After",
+        "https://placehold.co/800x600/png?text=Detail"
+      ]
+    };
+
+    const STORAGE_KEY = 'autoShopSiteContent_v1';
+    const state = {
+      content: JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || defaults
+    };
+
+    function saveToStorage() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.content));
+      render();
+      alert('Saved! Your changes are stored in this browser. Use Export to back up.');
+    }
+
+    function renderServices() {
+      const wrap = el('#services-list');
+      wrap.innerHTML = '';
+      state.content.services.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'rounded-2xl border p-5 bg-white/40 dark:bg-neutral-900/60';
+        card.innerHTML = `
+          <div class="flex items-baseline justify-between">
+            <h4 class="text-xl font-bold">${s.title}</h4>
+            <span class="text-blue-600 font-semibold">${s.price || ''}</span>
+          </div>
+          <p class="text-neutral-600 dark:text-neutral-300 mt-1">${s.blurb || ''}</p>
+        `;
+        wrap.appendChild(card);
+      });
+      el('#services-note').textContent = state.content.servicesNote || '';
+    }
+
+    function renderReviews() {
+      const wrap = el('#reviews');
+      wrap.innerHTML = '';
+      state.content.reviews.forEach(r => {
+        const card = document.createElement('div');
+        card.className = 'rounded-2xl border p-5 bg-white/40 dark:bg-neutral-900/60';
+        card.innerHTML = `
+          <p class="italic">“${r.text}”</p>
+          <p class="mt-3 font-semibold">— ${r.name}</p>`;
+        wrap.appendChild(card);
+      });
+    }
+
+    function renderGallery() {
+      const wrap = el('#gallery-grid');
+      wrap.innerHTML = '';
+      state.content.gallery.forEach(url => {
+        const img = document.createElement('img');
+        img.className = 'w-full h-56 object-cover rounded-2xl border';
+        img.src = url; img.alt = 'Shop photo';
+        wrap.appendChild(img);
+      });
+    }
+
+    function renderHours() {
+      const wrap = el('#hours-list');
+      wrap.innerHTML = '';
+      Object.entries(state.content.hours).forEach(([day, hrs]) => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 py-3';
+        li.innerHTML = `<span class="font-medium">${day}</span><span class="text-neutral-600 dark:text-neutral-300">${hrs}</span>`;
+        wrap.appendChild(li);
+      });
+    }
+
+    function renderMap() {
+      const q = encodeURIComponent(state.content.address);
+      el('#map-link').href = state.content.maps || `https://maps.google.com/?q=${q}`;
+      el('#map-embed').src = `https://www.google.com/maps?q=${q}&output=embed`;
+    }
+
+    function renderSchema() {
+      const data = {
+        "@context": "https://schema.org",
+        "@type": "AutoRepair",
+        name: state.content.name,
+        image: state.content.hero.img,
+        address: { "@type": "PostalAddress", streetAddress: state.content.address },
+        telephone: state.content.phone,
+        email: state.content.email,
+        openingHoursSpecification: Object.entries(state.content.hours).map(([day, hours]) => ({
+          "@type": "OpeningHoursSpecification", dayOfWeek: day, opens: hours.split('–')[0]?.trim(), closes: hours.split('–')[1]?.trim()
+        })),
+        url: location.href
+      };
+      el('#schema').textContent = JSON.stringify(data);
+    }
+
+    function render() {
+      el('#biz-name').textContent = state.content.name;
+      els('#footer-name').forEach(n => n.textContent = state.content.name);
+      el('#biz-tagline').textContent = state.content.tagline;
+      el('#topbar-msg').textContent = state.content.topbar;
+
+      el('#topbar-phone').textContent = `Call: ${state.content.phone}`;
+      el('#topbar-phone').href = `tel:${state.content.phoneHref || state.content.phone.replace(/[^\d]/g,'')}`;
+
+      el('#hero-title').textContent = state.content.hero.title;
+      el('#hero-sub').textContent = state.content.hero.sub;
+      el('#hero-img').src = state.content.hero.img;
+
+      el('#cta-call').href = `tel:${state.content.phoneHref || state.content.phone.replace(/[^\d]/g,'')}`;
+      el('#contact-phone').href = `tel:${state.content.phoneHref || state.content.phone.replace(/[^\d]/g,'')}`;
+      el('#contact-phone').textContent = state.content.phone;
+
+      el('#contact-email').href = `mailto:${state.content.email}`;
+      el('#contact-email').textContent = state.content.email;
+
+      el('#address').textContent = state.content.address;
+      el('#contact-address').textContent = state.content.address;
+
+      el('#services-note').textContent = state.content.servicesNote || '';
+
+      el('#about-text').textContent = state.content.about.text;
+      el('#about-img').src = state.content.about.img;
+
+      renderServices();
+      renderReviews();
+      renderGallery();
+      renderHours();
+      renderMap();
+      renderSchema();
+      el('#year').textContent = new Date().getFullYear();
+    }
+
+    // Appointment form => mailto
+    el('#appt-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = el('#f-name').value.trim();
+      const phone = el('#f-phone').value.trim();
+      const email = el('#f-email').value.trim();
+      const vehicle = el('#f-vehicle').value.trim();
+      const msg = el('#f-msg').value.trim();
+      const subject = encodeURIComponent(`Appointment request from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nVehicle: ${vehicle}\n\nIssue: ${msg}`);
+      window.location.href = `mailto:${state.content.email}?subject=${subject}&body=${body}`;
+    });
+
+    // Theme toggle
+    el('#toggle-theme').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    // Admin panel open
+    el('#owner-login').addEventListener('click', () => {
+      const dlg = el('#admin');
+      populateEditor();
+      dlg.showModal();
+    });
+
+    // Populate admin editor with current content
+    function populateEditor() {
+      el('#e-name').value = state.content.name;
+      el('#e-tag').value = state.content.tagline;
+      el('#e-phone').value = state.content.phone;
+      el('#e-email').value = state.content.email;
+      el('#e-address').value = state.content.address;
+      el('#e-maps').value = state.content.maps || '';
+      el('#e-license').value = state.content.license || '';
+      el('#e-hero-title').value = state.content.hero.title;
+      el('#e-hero-sub').value = state.content.hero.sub;
+      el('#e-hero-img').value = state.content.hero.img;
+      el('#e-topbar').value = state.content.topbar;
+      el('#e-services-note').value = state.content.servicesNote || '';
+
+      // Hours
+      const hoursWrap = el('#e-hours');
+      hoursWrap.innerHTML = '';
+      Object.entries(state.content.hours).forEach(([day, hrs]) => {
+        const row = document.createElement('div');
+        row.className = 'flex items-center gap-2';
+        row.innerHTML = `<label class="w-28">${day}</label><input data-day="${day}" class="flex-1 px-3 py-2 border rounded-xl" value="${hrs}">`;
+        hoursWrap.appendChild(row);
+      });
+
+      // Services
+      const sWrap = el('#e-services');
+      sWrap.innerHTML = '';
+      state.content.services.forEach((s, idx) => addServiceEditorRow(sWrap, s, idx));
+
+      // Reviews
+      const rWrap = el('#e-reviews');
+      rWrap.innerHTML = '';
+      state.content.reviews.forEach((r, idx) => addReviewEditorRow(rWrap, r, idx));
+
+      // Gallery
+      const gWrap = el('#e-gallery');
+      gWrap.innerHTML = '';
+      state.content.gallery.forEach((url, idx) => addPhotoEditorCell(gWrap, url, idx));
+
+      // About
+      el('#e-about').value = state.content.about.text;
+      el('#e-about-img').value = state.content.about.img;
+    }
+
+    function addServiceEditorRow(container, s = {title:'', price:'', blurb:''}, idx) {
+      const row = document.createElement('div');
+      row.className = 'grid grid-cols-12 gap-2';
+      row.innerHTML = `
+        <input class="col-span-4 px-3 py-2 border rounded-xl" placeholder="Service title" value="${s.title}">
+        <input class="col-span-2 px-3 py-2 border rounded-xl" placeholder="Price" value="${s.price || ''}">
+        <input class="col-span-5 px-3 py-2 border rounded-xl" placeholder="Short blurb" value="${s.blurb || ''}">
+        <button class="col-span-1 px-3 py-2 border rounded-xl" aria-label="Remove">✕</button>`;
+      row.querySelector('button').addEventListener('click', () => {
+        state.content.services.splice(idx,1);
+        populateEditor();
+      });
+      container.appendChild(row);
+    }
+
+    function addReviewEditorRow(container, r = {name:'', text:''}, idx) {
+      const row = document.createElement('div');
+      row.className = 'grid grid-cols-12 gap-2';
+      row.innerHTML = `
+        <input class="col-span-4 px-3 py-2 border rounded-xl" placeholder="Customer name" value="${r.name}">
+        <input class="col-span-7 px-3 py-2 border rounded-xl" placeholder="Review text" value="${r.text}">
+        <button class="col-span-1 px-3 py-2 border rounded-xl" aria-label="Remove">✕</button>`;
+      row.querySelector('button').addEventListener('click', () => {
+        state.content.reviews.splice(idx,1);
+        populateEditor();
+      });
+      container.appendChild(row);
+    }
+
+    function addPhotoEditorCell(container, url = '', idx) {
+      const cell = document.createElement('div');
+      cell.className = 'relative';
+      cell.innerHTML = `
+        <img class="w-full h-36 object-cover rounded-xl border" src="${url}" alt="photo" onerror="this.src='https://placehold.co/600x400/png'" />
+        <div class="mt-2 flex gap-2">
+          <input class="flex-1 px-3 py-2 border rounded-xl" value="${url}" placeholder="Image URL">
+          <button class="px-3 py-2 border rounded-xl" aria-label="Remove">✕</button>
+        </div>`;
+      cell.querySelector('button').addEventListener('click', () => {
+        state.content.gallery.splice(idx,1);
+        populateEditor();
+      });
+      container.appendChild(cell);
+    }
+
+    // Add buttons
+    el('#add-service').addEventListener('click', (e)=>{
+      e.preventDefault();
+      state.content.services.push({title:'New Service', price:'', blurb:''});
+      populateEditor();
+    });
+    el('#add-review').addEventListener('click', (e)=>{
+      e.preventDefault();
+      state.content.reviews.push({name:'Customer', text:'Great work!'});
+      populateEditor();
+    });
+    el('#add-photo').addEventListener('click', (e)=>{
+      e.preventDefault();
+      state.content.gallery.push('https://placehold.co/800x600/png?text=New+Photo');
+      populateEditor();
+    });
+
+    // Save from Admin Panel
+    el('#btn-save').addEventListener('click', (e)=>{
+      e.preventDefault();
+      // Business
+      state.content.name = el('#e-name').value.trim() || state.content.name;
+      state.content.tagline = el('#e-tag').value.trim();
+      state.content.phone = el('#e-phone').value.trim();
+      state.content.phoneHref = state.content.phone.replace(/[^\d]/g,'');
+      state.content.email = el('#e-email').value.trim();
+      state.content.address = el('#e-address').value.trim();
+      state.content.maps = el('#e-maps').value.trim();
+      state.content.license = el('#e-license').value.trim();
+      // Hero
+      state.content.hero.title = el('#e-hero-title').value.trim();
+      state.content.hero.sub = el('#e-hero-sub').value.trim();
+      state.content.hero.img = el('#e-hero-img').value.trim();
+      state.content.topbar = el('#e-topbar').value.trim();
+      // Hours
+      els('#e-hours input').forEach(inp=>{
+        const day = inp.dataset.day;
+        state.content.hours[day] = inp.value.trim();
+      });
+      // Services
+      const sRows = els('#e-services > div');
+      state.content.services = sRows.map(row => {
+        const [t,p,b,] = row.querySelectorAll('input');
+        return { title: t.value.trim(), price: p.value.trim(), blurb: b.value.trim() };
+      });
+      state.content.servicesNote = el('#e-services-note').value.trim();
+      // Reviews
+      const rRows = els('#e-reviews > div');
+      state.content.reviews = rRows.map(row => {
+        const [n,t,] = row.querySelectorAll('input');
+        return { name: n.value.trim(), text: t.value.trim() };
+      });
+      // Gallery
+      const gCells = els('#e-gallery > div');
+      state.content.gallery = gCells.map(cell => cell.querySelector('input').value.trim()).filter(Boolean);
+      // About
+      state.content.about.text = el('#e-about').value.trim();
+      state.content.about.img = el('#e-about-img').value.trim();
+
+      saveToStorage();
+    });
+
+    // Export/Import JSON
+    el('#btn-export').addEventListener('click', (e)=>{
+      e.preventDefault();
+      const blob = new Blob([JSON.stringify(state.content, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'site-content.json'; a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    el('#btn-import').addEventListener('click', (e)=>{
+      e.preventDefault();
+      el('#file-input').click();
+    });
+
+    el('#file-input').addEventListener('change', async (e)=>{
+      const file = e.target.files[0]; if(!file) return;
+      try{
+        const text = await file.text();
+        const data = JSON.parse(text);
+        state.content = { ...defaults, ...data };
+        saveToStorage();
+        populateEditor();
+      }catch(err){ alert('Invalid JSON file.'); }
+    });
+
+    // Init
+    render();
+  </script>
+</body>
+</html>
